@@ -119,7 +119,7 @@ if(isset($_GET['id'])) {
                                 echo "<td class='afnnum'>" . number_format($bill['total_amount']) . "</td>";
                                 echo "<td>" . $isLoan . "</td>";
                                 echo "<td>" . htmlspecialchars($bill['created_at']) . "</td>";
-                                echo "<td><a href='print_bill.php?sale_id=" . $bill['id'] . "' target='_blank'><i class='bi bi-box-arrow-up-right fs-3 text-white'></i></a></td>";
+                                echo "<td><a href='print_bill.php?sale_id=" . $bill['sale_id'] . "' target='_blank'><i class='bi bi-box-arrow-up-right fs-3 text-white'></i></a></td>";
                                 echo "</tr>";
                             }
                         } else {
