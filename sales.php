@@ -136,7 +136,11 @@ include('includes/header.php');
                         </div>
 
                         <div class="col-md-1">
+<<<<<<< HEAD
                             <label for="delete[]" class="form-label">delete</label>
+=======
+                            <label for="delete[]" class="form-label">Delete</label>
+>>>>>>> d1ece8a (replace old project with new one)
                             <button type="button" class="btn btn-danger deleteRow" disabled>
                                 <i class="bi bi-trash-fill" id="delete[]"></i>
                             </button>

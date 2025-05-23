@@ -14,13 +14,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Check if the purchase was added successfully
     if ($stmt->execute()) {
+<<<<<<< HEAD
+=======
+        #region calculate the new price for the product
+        $current_product = $conn->query("SELECT * FROM products WHERE id = $product_id")->fetch_assoc();
+        $current_quantity = (($current_product['warehouse']) ?? 0) + (($current_product['stock']) ?? 0);
+        $current_price = ($current_product['current_price']) ?? 0;
+        $new_price = (($current_price * $current_quantity) + ($price * $quantity)) / ($current_quantity + $quantity);
+        #endregion
+>>>>>>> d1ece8a (replace old project with new one)
         // Update the warehouse, current_price, and last_purchase in the products table
         $stmt2 = $conn->prepare("
         UPDATE products
         SET warehouse = warehouse + ?, current_price = ?, last_purchase = NOW()
         WHERE id = ?
         ");
+<<<<<<< HEAD
         $stmt2->bind_param("idi", $quantity, $price, $product_id);
+=======
+        $stmt2->bind_param("idi", $quantity, $new_price, $product_id);
+>>>>>>> d1ece8a (replace old project with new one)
         $stmt2->execute();
         #region record the transaction
         $product = ($conn->query("SELECT name FROM products WHERE id = $product_id")->fetch_assoc()['name']) ?? $product_id;

@@ -36,7 +36,10 @@ include('includes/header.php');
                 </div>
             </div>
         <!-- #endregion -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> d1ece8a (replace old project with new one)
         <!-- #region filter javascript logic -->
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
@@ -143,6 +146,14 @@ include('includes/header.php');
                 </ul>
             </nav>
         <!-- #endregion -->
+<<<<<<< HEAD
+=======
+        <?php
+            if ($conn->query("SELECT COUNT(*) AS total_sales FROM sales")->fetch_assoc()['total_sales'] == 0) {
+                echo "<p>No sale found.</p>";
+            }
+        ?>
+>>>>>>> d1ece8a (replace old project with new one)
     </div>
 <!-- #endregion -->
 

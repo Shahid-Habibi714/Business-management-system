@@ -12,11 +12,14 @@ function calculateDailyProfit($conn) {
     $expenseQuery = $conn->query("SELECT SUM(amount) AS total_expenses FROM daily_expenses WHERE DATE(date) = '$date'");
     $expenseResult = $expenseQuery->fetch_assoc();
     $daily_expenses = $expenseResult['total_expenses'] ?? 0;
+<<<<<<< HEAD
     
     // get used accessories
     $accessoriesQuery = $conn->query("SELECT SUM(total_price) AS total_price FROM accessories_log WHERE DATE(date) = CURDATE()");
     $accessoriesResult = $accessoriesQuery->fetch_assoc();
     $accessories_price = $accessoriesResult['total_price'] ?? 0;
+=======
+>>>>>>> d1ece8a (replace old project with new one)
 
     // get the dollar rate
     $dollarRateQuery = $conn->query("SELECT rate FROM currency ORDER BY date DESC LIMIT 1");
@@ -25,7 +28,11 @@ function calculateDailyProfit($conn) {
     
     // Calculate net profit in dollar
     $daily_expenses_in_usd = $daily_expenses / $dollar_rate;
+<<<<<<< HEAD
     $loss = $daily_expenses_in_usd + $accessories_price;
+=======
+    $loss = $daily_expenses_in_usd;
+>>>>>>> d1ece8a (replace old project with new one)
     $net_profit = $gross_profit - $loss;
     
     // Insert or update today's net profit
@@ -89,8 +96,16 @@ function calculateAnnualProfit($conn) {
     $expenses = $conn->query("SELECT SUM(amount) AS amount FROM annual_expenses WHERE date = '$year'")->fetch_assoc()['amount'];
     $expenses_in_usd = $expenses / $dollar_rate;
     
+<<<<<<< HEAD
     // calculate loss
     $annual_loss = $expenses_in_usd;
+=======
+    // get the rejected sales
+    $rejected_sales = $conn->query("SELECT SUM(total_loss) AS loss FROM rejected_sales WHERE DATE_FORMAT(rejection_date, '%Y') = $year")->fetch_assoc()['loss'];
+
+    // calculate loss
+    $annual_loss = $expenses_in_usd + $rejected_sales;
+>>>>>>> d1ece8a (replace old project with new one)
 
     // calculate monthly net profit
     $annual_net_profit = $total_net_profit - $annual_loss;

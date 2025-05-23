@@ -175,7 +175,11 @@ include('includes/header.php');
 
                                 // Filter the table rows based on the selected radio button
                                 tableRows.forEach(row => {
+<<<<<<< HEAD
                                     const rejectionDate = new Date(row.cells[11].textContent);
+=======
+                                    const rejectionDate = new Date(row.cells[12].textContent);
+>>>>>>> d1ece8a (replace old project with new one)
                                     const daysDifference = Math.ceil((currentDate - rejectionDate) / (1000 * 60 * 60 * 24));
                                     switch (selectedRadioId) {
                                         case "reporting-today":

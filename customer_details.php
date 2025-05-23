@@ -35,6 +35,7 @@ if(isset($_GET['id'])) {
                 <h1>
                     <?php echo htmlspecialchars($customer['name']); ?>
                 </h1>
+<<<<<<< HEAD
                 <p>
                     Total Loan: <span class='afnnum'><?php echo number_format(htmlspecialchars($customer['loan']), 2); ?></span>
                 </p>
@@ -48,12 +49,73 @@ if(isset($_GET['id'])) {
                     <input type="submit" class="btn btn-primary w-100" value="Repay">
                 </div>
             </form>
+=======
+                <div style="border: solid 1px rgba(255,255,255,0.5);box-shadow:0px 0px 10px rgba(0,0,0,0.5);position:relative;" class="round d-flex">
+                <div style="overflow:hidden;" class="round d-flex">
+                    <div style="
+                        position:absolute;
+                        left:-25px; top:50%;
+                        transform:translateY(-50%);
+                        border-radius:50%;
+                        width:50px; height:50px;
+                        background:#005070;
+                        color:#aaffff;
+                        text-align:center;
+                        line-height:45px;
+                        border:solid 1px currentColor;
+                        font-weight:bold;" class="shine">؋</div>
+                    <div class="text-bg-dark px-5 py-1" style="font-weight:900;color:#aaffff !important;">
+                        <?php echo number_format(htmlspecialchars($customer['loan'])); ?>
+                    </div>
+                </div> 
+                </div>
+            </div>
+            <div class="col-3 d-flex align-items-center">
+                <div class="card text-bg-dark-glass text-white shadow w-100">
+                    <h4 class="text-bg-dark-glass text-center py-2">Repay money</h4>
+                    <div class="card-body">
+                        <form method="POST" action="helpers/customer_details_repay.php" class="flex-column">
+                            <div class="mb-3">
+                                <input type="number" step="0.01" class="form-control tbox text-bg-dark-glass" name="repayment_amount" required autocomplete="off" placeholder="Amount">
+                                <input type="hidden" name="customer_id" value="<?= $customer_id ?>">
+                            </div>
+                            <div class="mb-3"> 
+                                <button type="submit" class="btn btn-success w-100">Repay</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 offset-1 d-flex align-items-center">
+                <div class="card text-bg-dark-glass text-white shadow w-100">
+                    <h4 class="text-bg-dark-glass text-center py-2">Lend money</h4>
+                    <div class="card-body">
+                        <form method="POST" action="helpers/customer_details_lend.php" class="flex-column">
+                            <div class="mb-3">
+                                <input type="number" step="0.01" class="form-control tbox text-bg-dark-glass" name="amount" required autocomplete="off" placeholder="Amount">
+                                <input type="hidden" name="customer_id" value="<?= $customer_id ?>">
+                            </div>
+                            <div class="mb-3"> 
+                                <button type="submit" class="btn btn-danger w-100">Lend</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+>>>>>>> d1ece8a (replace old project with new one)
         </div>
         <div class="row text-bg-dark w-100">
             <div class="col-2 offset-2">
                 <h5 style="line-height: 50px;">
                     <i class="bi bi-telephone-fill text-primary"></i>
+<<<<<<< HEAD
                     <?php echo htmlspecialchars($customer['phone_number']); ?>
+=======
+                    <?php 
+                        $phone = $customer['phone_number'];
+                        echo htmlspecialchars(substr($phone, 0, 4) . ' ' . substr($phone, 4, 3) . ' ' . substr($phone, 7));
+                    ?>
+>>>>>>> d1ece8a (replace old project with new one)
                 </h5>
             </div>
             <div class="col-6">
@@ -119,7 +181,11 @@ if(isset($_GET['id'])) {
                                 echo "<td class='afnnum'>" . number_format($bill['total_amount']) . "</td>";
                                 echo "<td>" . $isLoan . "</td>";
                                 echo "<td>" . htmlspecialchars($bill['created_at']) . "</td>";
+<<<<<<< HEAD
                                 echo "<td><a href='print_bill.php?sale_id=" . $bill['id'] . "' target='_blank'><i class='bi bi-box-arrow-up-right fs-3 text-white'></i></a></td>";
+=======
+                                echo "<td><a href='print_bill.php?sale_id=" . $bill['sale_id'] . "' target='_blank'><i class='bi bi-box-arrow-up-right fs-3 text-white'></i></a></td>";
+>>>>>>> d1ece8a (replace old project with new one)
                                 echo "</tr>";
                             }
                         } else {
@@ -132,13 +198,22 @@ if(isset($_GET['id'])) {
                     <table class="table table-dark">
                         <tr>
                             <th>ID</th>
+<<<<<<< HEAD
                             <th>Repayed Amount</th>
+=======
+                            <th>Amount</th>
+                            <th>Repay / Lend</th>
+>>>>>>> d1ece8a (replace old project with new one)
                             <th>Date</th>
                             <th>User</th>
                         </tr>
                         <?php 
                         // Get the logs of the customer from the customer_loans_log table
+<<<<<<< HEAD
                         $stmt = $conn->prepare("SELECT * FROM customer_loans_log WHERE customer_id = ?");
+=======
+                        $stmt = $conn->prepare("SELECT * FROM customer_loans_log WHERE customer_id = ? ORDER BY created_at DESC");
+>>>>>>> d1ece8a (replace old project with new one)
                         $stmt->bind_param("i", $customer_id);
                         $stmt->execute();
                         $result = $stmt->get_result();
@@ -146,7 +221,14 @@ if(isset($_GET['id'])) {
                             while($loan = $result->fetch_assoc()) {
                                 echo "<tr>";
                                     echo "<td>" . htmlspecialchars($loan['id']) . "</td>";
+<<<<<<< HEAD
                                     echo "<td>" . htmlspecialchars($loan['amount']) . "</td>";
+=======
+                                    echo "<td class='afnnum'>" . number_format($loan['amount']) . "</td>";
+                                    echo "<td class='text-" . ($loan['repay_lend'] === 'repay' ? 'success' : 'danger') . "' style='font-weight: 900;'>" 
+                                        . htmlspecialchars($loan['repay_lend']) 
+                                        . "</td>";
+>>>>>>> d1ece8a (replace old project with new one)
                                     echo "<td>" . htmlspecialchars($loan['created_at']) . "</td>";
                                     echo "<td>" . htmlspecialchars($loan['username']) . "</td>";
                                 echo "</tr>";
