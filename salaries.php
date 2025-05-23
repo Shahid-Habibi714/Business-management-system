@@ -57,13 +57,30 @@ include('helpers/salaries_helper.php');
                                     <th>Remaining</th>
                                 </tr>';
                         while ($row = $salaries->fetch_assoc()) {
+                            $remaining = $row['salary'] - $row['amount_paid'];
+
                             echo "<tr>
                                     <td>{$row['id']}</td>
                                     <td>{$row['employee_name']}</td>
                                     <td class='afnnum'>" . number_format($row['salary'], 2) . "</td>
                                     <td class='afnnum'>" . number_format($row['amount_paid'], 2) . "</td>
-                                    <td class='afnnum'>" . number_format(($row['salary'] - $row['amount_paid']), 2) . "</td>
-                                </tr>";
+                                    <td class='afnnum'>" . number_format(($row['salary'] - $row['amount_paid']), 2) . "</td>";
+                                
+                                // Add Pay button if salary is not fully paid
+                                if ($remaining > 0) {
+                                    echo "<td>
+                                            <form action='pay_salary.php' method='POST' class='d-flex'>
+                                                <input type='hidden' name='employee_id' value='{$row['employee_id']}'>
+                                                <input type='hidden' name='month' value='{$month}'>
+                                                <input type='number' name='amount' placeholder='Enter amount' min='1' max='{$remaining}' required class='form-control form-control-sm me-2'>
+                                                <button type='submit' class='btn btn-success btn-sm'>Pay</button>
+                                            </form>
+                                        </td>";
+                                } else {
+                                    echo "<td><span class='text-success'>Paid</span></td>";
+                                }
+
+                                echo "</tr>";
                         }
                         echo "</table>";
                     }
