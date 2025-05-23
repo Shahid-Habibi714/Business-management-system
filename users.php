@@ -60,7 +60,11 @@ include('includes/header.php');
                                 <!-- Reset and Submit -->
                                 <div class="d-flex justify-content-between">
                                     <button type="reset" class="btn btn-danger">Reset</button>
+<<<<<<< HEAD
                                     <button type="submit" class="btn btn-primary">Add Product</button>
+=======
+                                    <button type="submit" class="btn btn-primary">Add User</button>
+>>>>>>> d1ece8a (replace old project with new one)
                                 </div>
                             </form>
                         </div>
@@ -87,7 +91,11 @@ include('includes/header.php');
                                 echo "<i class='bi bi-person-circle' style='font-size: 5em;'></i>";
                                 echo "<h4 class='pb-4'>" . ucFirst($row["username"]) . "</h4>";
                                 echo "<h5 class='pb-4' style='color: rgba(255,255,255,0.5);'>Passowrd: " . $row["password"] . "</h5>";
+<<<<<<< HEAD
                                 echo "<button class='w-50 mb-3 btn btn-success'  data-bs-toggle='modal' data-bs-target='#changeModal' data-id='" . $row['id'] . "' data-user='" . $row['username'] . "' data-pass='" . $row['password'] . "' data-role='" . $row['role'] . "'>Change Credintials</button><br>";
+=======
+                                echo "<button class='w-50 mb-3 btn btn-success'  data-bs-toggle='modal' data-bs-target='#changeModal' data-id='" . $row['id'] . "' data-user='" . $row['username'] . "' data-pass='" . $row['password'] . "' data-role='" . $row['role'] . "' data-currentUser='" . (($_SESSION['username'] == $row['username']) ? "yes" : "no") . "'>Change Credintials</button><br>";
+>>>>>>> d1ece8a (replace old project with new one)
                                 echo "<button class='w-50 mb-3 btn btn-danger'  data-bs-toggle='modal' data-bs-target='#deleteModal' data-id='" . $row['id'] . "' " . (($_SESSION['username'] == $row['username']) ? "disabled" : "") . ">Delete Account</button>";
                             echo "</div>";
                         echo "</div>";
@@ -112,6 +120,10 @@ include('includes/header.php');
                         <div class="modal-body">
                             <form action="helpers/users_update_user.php" method="POST" autocomplete="off">
                                 <input type="hidden" id="updateId" name="id">
+<<<<<<< HEAD
+=======
+                                <input type="hidden" id="currentUser" name="currentUser">
+>>>>>>> d1ece8a (replace old project with new one)
                                 <!-- User Name -->
                                 <div class="mb-3">
                                     <label for="updateUsername" class="form-label">User Name:</label>
@@ -152,9 +164,17 @@ include('includes/header.php');
                         var user = button.getAttribute('data-user'); 
                         var pass = button.getAttribute('data-pass'); 
                         var role = button.getAttribute('data-role'); 
+<<<<<<< HEAD
                         document.getElementById('updateId').value = id; 
                         document.getElementById('updateUsername').value = user; 
                         document.getElementById('updatePassword').value = pass; 
+=======
+                        var currentUser = button.getAttribute('data-currentUser');
+                        document.getElementById('updateId').value = id; 
+                        document.getElementById('updateUsername').value = user; 
+                        document.getElementById('updatePassword').value = pass; 
+                        document.getElementById('currentUser').value = currentUser; 
+>>>>>>> d1ece8a (replace old project with new one)
                          // Set the correct role as selected
                         var roleSelect = document.getElementById('updateRole');
                         for (var i = 0; i < roleSelect.options.length; i++) {
@@ -163,6 +183,12 @@ include('includes/header.php');
                                 break;
                             }
                         }
+<<<<<<< HEAD
+=======
+                        if (currentUser == "yes") {
+                            roleSelect.disabled = "true";
+                        }
+>>>>>>> d1ece8a (replace old project with new one)
                     });
                 });
             </script>

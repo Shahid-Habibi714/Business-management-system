@@ -81,7 +81,11 @@
 
                 <!-- Copyright -->
                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.5)">
+<<<<<<< HEAD
                     © 2020 Copyright:
+=======
+                    © 2025 Copyright:
+>>>>>>> d1ece8a (replace old project with new one)
                     <a class="text-white" href="https://www.linkedin.com/in/shahid-habibi/">Shahid Habibi</a>
                     <ul class="list-unstyled d-flex flex-row justify-content-center py-3">
                         <li>
@@ -115,6 +119,15 @@
             </footer>
         </div> <!-- End of Main Content -->
     </div> <!-- End of Wrapper (whole layout) -->
+<<<<<<< HEAD
+=======
+    <!-- #region initialize tooltips -->
+        <script>
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        </script>
+    <!-- #endregion -->
+>>>>>>> d1ece8a (replace old project with new one)
     <!-- Bootstrap JS -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
