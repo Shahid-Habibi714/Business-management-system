@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-2025-02-26 09:14:47
-=======
 2025-05-22 04:31:25
->>>>>>> d1ece8a (replace old project with new one)

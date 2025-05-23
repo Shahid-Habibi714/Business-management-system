@@ -48,15 +48,6 @@ $sale_items_result = $stmt2->get_result();
             left: 0px;
             right: 0px;
             width: 100%;
-<<<<<<< HEAD
-            height: 50px;
-            line-height: 50px;
-            font-size: 20px;
-            color: white;
-            padding: 0px 20px;
-            margin: 0px;
-            background: #472F0E;
-=======
             height: 70px;
             line-height: 50px;
             font-size: 20px;
@@ -70,18 +61,13 @@ $sale_items_result = $stmt2->get_result();
             transform: translate(-50%, -50%);
             width: 50%;
             opacity: .1;
->>>>>>> d1ece8a (replace old project with new one)
         }
     </style>
 </head>
 <body>
     <img src="img/bill_header.png" alt="bill image">
-<<<<<<< HEAD
-    <div class="container mt-5">
-=======
     <img src="img/logo.png" id="watermark">
     <div class="container" style="margin-top:-50px;">
->>>>>>> d1ece8a (replace old project with new one)
         <div class="mb-4 row">
             <p class="col-md-6">د پیریدونکی نوم: <?= htmlspecialchars($sale['customer_name']); ?></p>
             <p class="col-md-2">د بل نمبر: <?= $sale['id']; ?></p>
@@ -119,21 +105,10 @@ $sale_items_result = $stmt2->get_result();
                 </tr>
             </tfoot>
         </table>
-<<<<<<< HEAD
-        
-        <div class="text-center mt-4">
-            <button class="btn btn-primary no-print" onclick="window.print()">Print Bill</button>
-            <a href="sales.php" class="btn btn-secondary no-print">Back to Sales</a>
-        </div>
-    </div>
-    <p id="footer-container">
-        A96 پته: د پل خشتی جومات مخی ته، د موبایل سنټر لومړی منزل، دوکان نمبر
-=======
     </div>
     <p id="footer-container">
         <span>پته: د پل خشتی جومات مخی ته، د موبایل سنټر لومړی منزل، دوکان نمبر</span>
         <span>A96</span>
->>>>>>> d1ece8a (replace old project with new one)
     </p>
 </body>
 </html>

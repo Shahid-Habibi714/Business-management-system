@@ -32,11 +32,11 @@
     </style>
 </head>
 <body>
-    <div class="container text-bg-dark shine round py-5 col-4">
+    <div class="container text-bg-dark round py-5 col-4">
         <div class="text-danger" style="font-size: 100px;"><i class="bi bi-shield-lock-fill"></i></div>
         <h1 class="text-danger">Access Denied</h1>
         <p>You do not have permission to access this page.</p>
-        <a href="index.php" class="btn btn-primary">Go to Homepage</a>
+        <a href="login.php" class="btn btn-primary px-5">Login</a>
     </div>
 </body>
 </html>

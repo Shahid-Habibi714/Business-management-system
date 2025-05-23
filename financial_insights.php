@@ -23,13 +23,6 @@ include('includes/header.php');
     <div class="p-3 text-bg-dark">
     <?php
         $transactions = $conn->query("SELECT * FROM transactions ORDER BY DATE DESC LIMIT 1")->fetch_assoc();
-<<<<<<< HEAD
-        $products = ($transactions['total_products']) ?? 0;
-        $cash = ($transactions['cash']) ?? 0;
-        $cash_in_banks = ($transactions['cash_in_banks']) ?? 0;
-        $total_profit = $conn->query("SELECT SUM(annual_net_profit) AS net_profit FROM annual_profits")->fetch_assoc()['net_profit'];
-        $capital = ($products + $cash + $cash_in_banks + $total_profit) ?? 0;
-=======
         $products = 0;
         $productsStmt = $conn->query("SELECT * FROM products");
         while ($product = $productsStmt->fetch_assoc()) {
@@ -48,7 +41,6 @@ include('includes/header.php');
             WHERE s.is_loan = 0
         ")->fetch_assoc()['total_sales_in_dollar']) ?? 0;
         $capital = ($products + $cash + $cash_in_banks) ?? 0;
->>>>>>> d1ece8a (replace old project with new one)
     ?>
     <h1 class='p-5 text-center'>
         <span class='fs-5'>Capital:</span>
@@ -67,11 +59,7 @@ include('includes/header.php');
             <button class="nav-link w-100 active rounded-top" id="cash-tab" data-bs-toggle="tab" data-bs-target="#cash" type="button" role="tab" aria-controls="cash" aria-selected="true">
                 <i class='bi bi-cash-stack fs-1'></i><br>
                 <strong>Total cash:</strong>
-<<<<<<< HEAD
-                <h2><span class='usdnum'><?php echo number_format($cash + $total_profit, 2); ?></span></h2>
-=======
                 <h2><span class='usdnum'><?php echo number_format($cash, 2); ?></span></h2>
->>>>>>> d1ece8a (replace old project with new one)
             </button>
         </li>
         <li class="nav-item col-3 text-center" role="presentation">
@@ -91,30 +79,6 @@ include('includes/header.php');
     </ul>
     <div class="tab-content text-bg-dark p-3" id="myTabContent">
         <div class="tab-pane fade show active" id="cash" role="tabpanel" aria-labelledby="cash-tab">
-<<<<<<< HEAD
-            <div class="row py-5 d-flex justify-content-center">
-                <div class="col-3">
-                    <button type='button' class='btn btn-success w-100' data-bs-toggle='modal' data-bs-target='#addCashModal'>Deposit</button>
-                </div>
-                <div class="col-3">
-                    <button type='button' class='btn btn-danger w-100' data-bs-toggle='modal' data-bs-target='#subCashModal'>Withdraw</button>
-                </div>
-            </div>
-            <table class="table table-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Amound</th>
-                    <th>Deposit / Withdraw</th>
-                    <th>Date</th>
-                </tr>
-                <?php
-                    $logStmt = $conn->query("SELECT * FROM cash_log ORDER BY date DESC");
-                    while ($row = $logStmt->fetch_assoc()) {
-                        echo "<tr>
-                                <td>{$row['id']}</td>
-                                <td class='usdnum'>" . number_format($row['amount'], 2) . "</td>
-                                <td>{$row['add_sub']}</td>
-=======
             <?php
                 $drawer_safe_log = $conn->query("SELECT * FROM drawer_safe_log ORDER BY date DESC LIMIT 1")->fetch_assoc();
                 $drawer = ($drawer_safe_log['drawer_cash']) ?? 0;
@@ -202,7 +166,6 @@ include('includes/header.php');
                                 <td class='usdnum'>" . number_format($row['amount'], 2) . "</td>
                                 <td>{$action}</td>
                                 <td>{$message}</td>
->>>>>>> d1ece8a (replace old project with new one)
                                 <td>{$row['date']}</td>
                               </tr>";
                     }
@@ -251,15 +214,9 @@ include('includes/header.php');
                     </div>
                 </div>
 
-<<<<<<< HEAD
-                <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1.0.0"></script>
-=======
                 <script src="js/charts/moment.min.js"></script>
                 <script src="js/charts/chart.js"></script>
                 <script src="js/charts/chartjs-adapter-moment.js"></script>
->>>>>>> d1ece8a (replace old project with new one)
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         var ctx = document.getElementById('profitChart').getContext('2d');
@@ -341,11 +298,6 @@ include('includes/header.php');
                                             <th>Net Profit</th>
                                         </tr>
                                         <?php
-<<<<<<< HEAD
-                                            $result = $conn->query("SELECT * FROM profits ORDER BY date DESC");
-                                            while ($row = $result->fetch_assoc()) {
-                                                echo "<tr>
-=======
                                             // $result = $conn->query("SELECT * FROM profits ORDER BY date DESC");
                                             // while ($row = $result->fetch_assoc()) {
                                             //     echo "<tr>
@@ -359,7 +311,6 @@ include('includes/header.php');
                                             while ($row = $result->fetch_assoc()) {
                                                 echo "<tr style='cursor:pointer;' data-bs-toggle='modal' data-bs-target='#profitModal' 
                                                         data-date='{$row['date']}' onclick='fetchDailySales();fetchDailyLoans();'>
->>>>>>> d1ece8a (replace old project with new one)
                                                     <td>{$row['date']}</td>
                                                     <td class='usdnum'>" . number_format($row['gross_profit'], 2) . "</td>
                                                     <td class='usdnum'>" . number_format($row['loss'], 2) . "</td>
@@ -368,8 +319,6 @@ include('includes/header.php');
                                             }
                                         ?>
                                     </table>
-<<<<<<< HEAD
-=======
 
                                     <!-- Bootstrap Modal -->
                                     <div class="modal fade" id="profitModal" tabindex="-1" aria-labelledby="profitModalLabel" aria-hidden="true">
@@ -702,7 +651,6 @@ include('includes/header.php');
                                             });
                                         });
                                     </script>
->>>>>>> d1ece8a (replace old project with new one)
                                 <!-- #endregion -->
                             </div>
                             <div class="tab-pane fade" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
@@ -757,74 +705,7 @@ include('includes/header.php');
             <!-- #endregion -->
         </div>
     </div>
-<<<<<<< HEAD
-    <!-- #region Modal for adding cash -->
-        <div class="modal fade" id="addCashModal" tabindex="-1" aria-labelledby="addCashModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content text-bg-dark">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addCashModalLabel">Deposit Cash</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="helpers/financial_insights_transaction.php" method="POST" autocomplete="off">
-                            <!-- amount -->
-                            <div class="mb-3">
-                                <label for="amount" class="form-label">Amount:</label>
-                                <input type="number" id="amount" name="amount" class="form-control bg-transparent text-white" required step="0.01">
-                            </div>
-                            <!-- message -->
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message:</label>
-                                <textarea id="message" name="message" class="form-control bg-transparent text-white"></textarea>
-                            </div>
-                            <input type="hidden" name="type" value="addCash">
-                            <!-- Reset and Submit -->
-                            <div class="d-flex justify-content-between">
-                                <button type="reset" class="btn btn-danger">Reset</button>
-                                <button type="submit" name="depositCash" class="btn btn-success">Deposit Cash</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <!-- #endregion -->
-    <!-- #region Modal for subtracting cash -->
-        <div class="modal fade" id="subCashModal" tabindex="-1" aria-labelledby="subCashModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content text-bg-dark">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="subCashModalLabel">Withdraw Cash</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="helpers/financial_insights_transaction.php" method="POST" autocomplete="off">
-                            <!-- amount -->
-                            <div class="mb-3">
-                                <label for="amount" class="form-label">Amount:</label>
-                                <input type="number" id="amount" name="amount" class="form-control bg-transparent text-white" required step="0.01">
-                            </div>
-                            <!-- message -->
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message:</label>
-                                <textarea id="message" name="message" class="form-control bg-transparent text-white"></textarea>
-                            </div>
-                            <input type="hidden" name="type" value="subCash">
-                            <!-- Reset and Submit -->
-                            <div class="d-flex justify-content-between">
-                                <button type="reset" class="btn btn-danger">Reset</button>
-                                <button type="submit" name="withdrawCash" class="btn btn-danger">Withdraw</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <!-- #endregion -->
-=======
     
->>>>>>> d1ece8a (replace old project with new one)
     <!-- #region Modal for adding cash_in_bank -->
         <div class="modal fade" id="addCashInBankModal" tabindex="-1" aria-labelledby="addCashInBankModalLabel" aria-hidden="true">
             <div class="modal-dialog">

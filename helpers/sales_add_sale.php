@@ -77,14 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt2 = $conn->prepare("INSERT INTO sale_items (sale_id, product_id, quantity, price, total_profit) VALUES (?, ?, ?, ?, ?)");
             $stmt2->bind_param("iiidd", $sale_id, $product_id, $quantity, $price, $total_profit);
             $stmt2->execute();
-<<<<<<< HEAD
-            
-            #region record a transaction
-            require_once("financial_insights_transaction.php");
-            performTransaction($conn, "addSale", 0, "Sale added successfully with " . number_format($total_profit, 2) . " profit.", "");
-            #endregion
-=======
->>>>>>> d1ece8a (replace old project with new one)
 
             // Update product quantity in the products table
             $stmt3 = $conn->prepare("UPDATE products SET stock = stock - ? WHERE id = ?");
@@ -94,11 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $total_amount += $total;
             $total_sale_profit += $total_profit;
         }
-<<<<<<< HEAD
-
-        // require_once("../includes/header.php");
-=======
->>>>>>> d1ece8a (replace old project with new one)
         $conn->commit();
         
         // Update the total_amount and total_profit in the sales table
@@ -106,13 +93,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt3->bind_param("ddi", $total_amount, $total_sale_profit, $sale_id);
         $stmt3->execute();
 
-<<<<<<< HEAD
-        #region If the sale is marked as loan
-        if ($loan_check) {
-=======
         if ($loan_check) {
             #region add money to customer's loan
->>>>>>> d1ece8a (replace old project with new one)
             // update the customer's total loan amount in the customers table
             $stmt5 = $conn->prepare("UPDATE customers SET loan = loan + ? WHERE id = ?");
             $stmt5->bind_param("di", $total_amount, $customer_id);
@@ -122,10 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt6 = $conn->prepare("UPDATE sales SET is_loan = 1 WHERE id = ?");
             $stmt6->bind_param("i", $sale_id);
             $stmt6->execute();
-<<<<<<< HEAD
-        }
-        #endregion
-=======
             #endregion
         } else {
             #region add money to the drawer
@@ -138,7 +116,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt8->execute();
             #endregion
         }
->>>>>>> d1ece8a (replace old project with new one)
         
         // calculate the profits and losses
         require_once("sales_calculate_daily_profit.php");

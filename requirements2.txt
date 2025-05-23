@@ -38,27 +38,6 @@
 38. * DONE index page / limit the low stock items to 6 and add show more button to the low stock items
 
 
-<<<<<<< HEAD
-39. the previous product price should be divided on the new product's price and calculate the new average price
-40. accessories and udp should be added and calcualted as the consequent price
-41. in the customers it has to show the bill properly
-42. it has to show the rejected sales over time
-43. it has to show the pending rejected sales
-44. it has to show the customer name whom rejected the sales
-45. it has to shhow the bank account and the sender's name as well
-46. it has to show the sum of all sales for today, week, month and so on
-47. add borrowing system for customers
-48. add customer deletion
-49. add elmira and safe separately
-50. it has to show the total loan achived per day, month, week
-51. add a dialog for automating the packing process using subtracting both and adding the final product automatically
-
-
-
-
-
-
-=======
 39. * DONE the previous product price should be divided on the new product's price and calculate the new average price
 40. * DONE accessories and udp should be added and calcualted as the consequent price
 41. * DONE in the customers page, it has to show the bill properly
@@ -78,7 +57,6 @@
 
 products and cash columns are useless in transactions table
 set the database name to mobile_shop in the db_connect.php
->>>>>>> d1ece8a (replace old project with new one)
 
 
 39. rejected sales page / rejected sales shouldn't be based on bill id

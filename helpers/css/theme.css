@@ -1,0 +1,99 @@
+/* Custom Yellow Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #ffc107 !important; /* Yellow */
+    border-color: #ffc107 !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #e0a800 !important; /* Darker Yellow */
+    border-color: #d39e00 !important;
+}
+
+/* Custom Green Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #28a745 !important; /* Green */
+    border-color: #28a745 !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #218838 !important; /* Darker Green */
+    border-color: #1e7e34 !important;
+}
+
+/* Custom Blue Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #007bff !important; /* Blue */
+    border-color: #007bff !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #0056b3 !important; /* Darker Blue */
+    border-color: #004085 !important;
+}
+
+/* Custom Red Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #dc3545 !important; /* Red */
+    border-color: #dc3545 !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #c82333 !important; /* Darker Red */
+    border-color: #bd2130 !important;
+}
+
+/* Custom Purple Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #6f42c1 !important; /* Purple */
+    border-color: #6f42c1 !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #5a2a8b !important; /* Darker Purple */
+    border-color: #4e1b7f !important;
+}
+
+/* Custom Orange Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #fd7e14 !important; /* Orange */
+    border-color: #fd7e14 !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #e46a12 !important; /* Darker Orange */
+    border-color: #d15e0b !important;
+}
+
+/* Custom Pink Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #e83e8c !important; /* Pink */
+    border-color: #e83e8c !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #d6336c !important; /* Darker Pink */
+    border-color: #c1355e !important;
+}
+
+/* Custom Teal Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #20c997 !important; /* Teal */
+    border-color: #20c997 !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #17a785 !important; /* Darker Teal */
+    border-color: #138f6a !important;
+}
+
+/* Custom Indigo Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #6610f2 !important; /* Indigo */
+    border-color: #6610f2 !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #520dc2 !important; /* Darker Indigo */
+    border-color: #4b1ab8 !important;
+}
+
+/* Custom Cyan Primary Color */
+.bg-primary, .btn-primary {
+    background-color: #17a2b8 !important; /* Cyan */
+    border-color: #17a2b8 !important;
+}
+.bg-primary:hover, .btn-primary:hover {
+    background-color: #117a8b !important; /* Darker Cyan */
+    border-color: #0e6471 !important;
+}

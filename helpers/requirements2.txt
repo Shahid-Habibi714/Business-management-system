@@ -1,0 +1,105 @@
+1. * DONE enter dollar rate
+2. * DONE when saving sale, calculate the profit of sale and sale_item from last dollar rate
+3. * DONE add dollar rate_id to detarmine from which rate this sale and sale_item is calculated
+4. * DONE daily expenses should be subtrackted from daily profit
+5. * DONE it should show both afn and usd in the purchases
+6. * DONE there should be a place for repaying in the customers section
+7. * DONE add phone and physical address to the customers table
+8. * DONE refresh all pages after form submission
+9. * DONE financial insights page / add extra income & extra loss section with logging that shows the currency exchange.
+10. * DONE products page / when an accessory is used, calculate it as loss
+11. * DONE salaries page / employees salaries increasement and decreaseemnt
+12. * DONE add notification for low items
+13. * DONE in the rejected sales, add purchase date
+14. * DONE in the view sales, add column to indicate whether the bill was payed or loan
+15. * DONE add daily expenses to the left panel
+16. * DONE add currency exchange for entering everyday so all things will be calculated accordingly
+17. * DONE add afn to the purchases tab
+18. * DONE remove the currency column from the purchases table and add just $ sign to the price and total columns
+19. * DONE add a column for the total_profit in the sales table in php page
+20. * DONE solve the stock fetching in the sales page
+21. * DONE solve updating the stock level after adding a new rejection in the rejected_sales page
+22. * DONE make correct calculation for the loss_per_item in the rejected_sales page
+23. * DONE Handle taking the backing
+24. * DONE Knowing about IDs
+25. * DONE Designing the left panel
+26. * DONE Designing the table in the products page.
+27. * DONE Designing the table in the purchases page.
+28. * DONE Designing the table in the rejected sales page.
+29. * DONE Add delete button at the end of each row in the sales page.
+30. * DONE Add phone numbers to the bill
+31. * DONE in the sales page, the quantity should be limited to the stock quantity in the products table.
+32. * DONE Make another table for accessories and add it to the products page
+33. * DONE Calculate monthly expenses like electricity bill, shop rent
+34. * DONE Calculate annual expenses like tax, jawaz
+35. * DONE create users for everyone
+36. * DONE add dollar rate permission to other users
+37. * DONE products page / add two columns for shop and store
+38. * DONE index page / limit the low stock items to 6 and add show more button to the low stock items
+
+
+39. * DONE the previous product price should be divided on the new product's price and calculate the new average price
+40. * DONE accessories and udp should be added and calcualted as the consequent price
+41. * DONE in the customers page, it has to show the bill properly
+42. * DONE add customer deletion
+43. * DONE add a dialog for automating the packing process using subtracting both and adding the final product automatically
+44. * DONE add drawer and safe separately
+45. * DONE add borrowing system for customers
+46. * DONE it has to show the sum of all sales for today, week, month and so on
+47. * DONE it has to show the total loan achived per day, month, week
+48. * DONE it has to show the rejected sales over time
+49. it has to show the pending rejected sales
+50. it has to show the customer name who rejected the sales
+51. it has to show the bank account and the sender's name as well
+
+
+52. * DONE sale as loan should not be added to drawer
+
+products and cash columns are useless in transactions table
+set the database name to mobile_shop in the db_connect.php
+
+
+39. rejected sales page / rejected sales shouldn't be based on bill id
+40. it has to show the products on the way
+
+
+
+
+ type                                         | price    | Car Number | Code  | Quantity | CBM  | KG   | rent | rent of boxes
+-----------------------------------------------------------------------
+Air pads pro 2                                |          | GM   - 82  | gk295 | 5 BOXES  | 0.75 | 75KG | 124$ | 70AFN
+1k router cables, 600 35W super-fast chargers |          | GM    - 81 | gk104 | 10 BOXES | 0.574| 218  | 281$ |
+
+
+
+
+
+
+
+
+
+
+
+
+
+Shop and warehouse management:
+
+the products table will have stock and warehouse columns.
+stock represents the shop.
+total_stock will be calculated on-the-fly as:
+total_stock = stock + warehouse
+
+when a sale is made, it automatically dicreases the stock.
+if sale is made from the warehouse, i need to transfer it first from warehouse to stock.
+
+when products are purchased, it will automatically be added to the warehouse.
+
+
+steps to implement:
+1. * DONE Add `warehouse` column to the products table in the database.
+2. * DONE Update the products page to display the `stock`, `warehouse`, and total_stock columns.
+3. * DONE ALREADY DONE - Modify the sales logic to decrease the `stock` when a sale is made.
+4. * DONE Implement a transfer function to move products from `warehouse` to `stock`.
+5. * DONE Update the purchase logic to add products to the `warehouse` automatically.
+6. * DONE WILL BE DONE IN THE STEP 2 - Calculate `total_stock` on-the-fly as `total_stock = stock + warehouse` and display it where needed.
+7. * DONE Test the implementation to ensure that stock levels are updated correctly during sales, transfers, and purchases.

@@ -35,21 +35,6 @@ if(isset($_GET['id'])) {
                 <h1>
                     <?php echo htmlspecialchars($customer['name']); ?>
                 </h1>
-<<<<<<< HEAD
-                <p>
-                    Total Loan: <span class='afnnum'><?php echo number_format(htmlspecialchars($customer['loan']), 2); ?></span>
-                </p>
-            </div>
-            <form class="row col-6 d-flex align-items-center" action="helpers/customer_details_update_loan.php" method="post">
-                <div class="col-8">
-                    <input type="number" name="repayment_amount" class="form-control tbox" step="0.01" placeholder="Amount" required>
-                    <input type="hidden" name="customer_id" value="<?= $customer_id ?>">
-                </div>
-                <div class="col-4">
-                    <input type="submit" class="btn btn-primary w-100" value="Repay">
-                </div>
-            </form>
-=======
                 <div style="border: solid 1px rgba(255,255,255,0.5);box-shadow:0px 0px 10px rgba(0,0,0,0.5);position:relative;" class="round d-flex">
                 <div style="overflow:hidden;" class="round d-flex">
                     <div style="
@@ -102,20 +87,15 @@ if(isset($_GET['id'])) {
                     </div>
                 </div>
             </div>
->>>>>>> d1ece8a (replace old project with new one)
         </div>
         <div class="row text-bg-dark w-100">
             <div class="col-2 offset-2">
                 <h5 style="line-height: 50px;">
                     <i class="bi bi-telephone-fill text-primary"></i>
-<<<<<<< HEAD
-                    <?php echo htmlspecialchars($customer['phone_number']); ?>
-=======
                     <?php 
                         $phone = $customer['phone_number'];
                         echo htmlspecialchars(substr($phone, 0, 4) . ' ' . substr($phone, 4, 3) . ' ' . substr($phone, 7));
                     ?>
->>>>>>> d1ece8a (replace old project with new one)
                 </h5>
             </div>
             <div class="col-6">
@@ -181,11 +161,7 @@ if(isset($_GET['id'])) {
                                 echo "<td class='afnnum'>" . number_format($bill['total_amount']) . "</td>";
                                 echo "<td>" . $isLoan . "</td>";
                                 echo "<td>" . htmlspecialchars($bill['created_at']) . "</td>";
-<<<<<<< HEAD
-                                echo "<td><a href='print_bill.php?sale_id=" . $bill['id'] . "' target='_blank'><i class='bi bi-box-arrow-up-right fs-3 text-white'></i></a></td>";
-=======
                                 echo "<td><a href='print_bill.php?sale_id=" . $bill['sale_id'] . "' target='_blank'><i class='bi bi-box-arrow-up-right fs-3 text-white'></i></a></td>";
->>>>>>> d1ece8a (replace old project with new one)
                                 echo "</tr>";
                             }
                         } else {
@@ -198,22 +174,14 @@ if(isset($_GET['id'])) {
                     <table class="table table-dark">
                         <tr>
                             <th>ID</th>
-<<<<<<< HEAD
-                            <th>Repayed Amount</th>
-=======
                             <th>Amount</th>
                             <th>Repay / Lend</th>
->>>>>>> d1ece8a (replace old project with new one)
                             <th>Date</th>
                             <th>User</th>
                         </tr>
                         <?php 
                         // Get the logs of the customer from the customer_loans_log table
-<<<<<<< HEAD
-                        $stmt = $conn->prepare("SELECT * FROM customer_loans_log WHERE customer_id = ?");
-=======
                         $stmt = $conn->prepare("SELECT * FROM customer_loans_log WHERE customer_id = ? ORDER BY created_at DESC");
->>>>>>> d1ece8a (replace old project with new one)
                         $stmt->bind_param("i", $customer_id);
                         $stmt->execute();
                         $result = $stmt->get_result();
@@ -221,14 +189,10 @@ if(isset($_GET['id'])) {
                             while($loan = $result->fetch_assoc()) {
                                 echo "<tr>";
                                     echo "<td>" . htmlspecialchars($loan['id']) . "</td>";
-<<<<<<< HEAD
-                                    echo "<td>" . htmlspecialchars($loan['amount']) . "</td>";
-=======
                                     echo "<td class='afnnum'>" . number_format($loan['amount']) . "</td>";
                                     echo "<td class='text-" . ($loan['repay_lend'] === 'repay' ? 'success' : 'danger') . "' style='font-weight: 900;'>" 
                                         . htmlspecialchars($loan['repay_lend']) 
                                         . "</td>";
->>>>>>> d1ece8a (replace old project with new one)
                                     echo "<td>" . htmlspecialchars($loan['created_at']) . "</td>";
                                     echo "<td>" . htmlspecialchars($loan['username']) . "</td>";
                                 echo "</tr>";

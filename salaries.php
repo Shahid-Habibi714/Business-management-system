@@ -107,11 +107,7 @@ include('helpers/salaries_helper.php');
             </div>
             <div class="tab-pane fade" id="employees" role="tabpanel" aria-labelledby="employees-tab">
                 <!-- #region adding an employee -->
-<<<<<<< HEAD
-                    <div class="col-6 offset-3 round" style="background: rgba(255, 255, 255, 0.05);">
-=======
                     <div class="col-6 offset-3 round shadow" style="background: rgba(255, 255, 255, 0.05);">
->>>>>>> d1ece8a (replace old project with new one)
                         <div class="text-white py-3 text-center">
                             <h5>Add new employee</h5>
                         </div>
@@ -119,21 +115,13 @@ include('helpers/salaries_helper.php');
                             <div class="form-group row">
                                 <label for="employee_name" class="col-sm-3 col-form-label">Employee Name:</label>
                                 <div class="col-sm-9">
-<<<<<<< HEAD
-                                    <input type="text" class="form-control tbox" id="employee_name" name="employee_name" required>
-=======
                                     <input type="text" class="form-control tbox" id="employee_name" name="employee_name" placeholder="Employee Nmae" required>
->>>>>>> d1ece8a (replace old project with new one)
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
                                 <label for="salary" class="col-sm-3 col-form-label">Salary:</label>
                                 <div class="col-sm-9">
-<<<<<<< HEAD
-                                    <input type="number" class="form-control tbox" id="salary" name="salary" required>
-=======
                                     <input type="number" class="form-control tbox" id="salary" name="salary" placeholder = "Employee Salary" required>
->>>>>>> d1ece8a (replace old project with new one)
                                 </div>
                             </div>
                             <div class="form-group row mt-3">

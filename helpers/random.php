@@ -6,11 +6,7 @@ function encrypt_date($date) {
 }
 
 // Expiration Date (YYYY-MM-DD)
-<<<<<<< HEAD
-$target_date = "2025-07-18";
-=======
 $target_date = "2025-12-25";
->>>>>>> d1ece8a (replace old project with new one)
 
 // Encrypt the date
 $encrypted_date = encrypt_date($target_date);

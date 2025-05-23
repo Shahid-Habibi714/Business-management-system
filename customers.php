@@ -23,11 +23,7 @@ include('includes/header.php');
             </form>
         <!-- #endregion -->
         <!-- #region showing customers -->
-<<<<<<< HEAD
-            <div class="d-flex flex-column align-items-center justify-content-center pb-5">
-=======
             <div class="d-flex flex-column align-items-center justify-content-center pb-5 round" style="box-shadow: 0px -10px 10px rgba(0,0,0,0.5);margin-top:-20px;background:var(--bg);">
->>>>>>> d1ece8a (replace old project with new one)
                 <h2 class="py-5">Customers</h2>
                 <!-- #region Filters Section -->
                     <h4 class="mt-3">Filter</h4>
@@ -49,11 +45,7 @@ include('includes/header.php');
                             const all_customers = document.querySelectorAll('.customer-card');
 
                             all_customers.forEach(customer => {
-<<<<<<< HEAD
-                                const name = customer.querySelector("div h5").innerHTML.toLowerCase(); // Customer Name
-=======
                                 const name = customer.querySelector("div h3").innerHTML.toLowerCase(); // Customer Name
->>>>>>> d1ece8a (replace old project with new one)
 
                                 const matchesSearch = name.includes(searchValue);
 
@@ -75,31 +67,20 @@ include('includes/header.php');
                         if ($result->num_rows > 0) {
                             // Output data of each row
                             while($row = $result->fetch_assoc()) {
-<<<<<<< HEAD
-                                echo "<div class='col-3 p-3 customer-card my-2' style='position:relative;'>";
-                                    if ($row["loan"] == "0") {
-                                        echo "<h1 style='position:absolute;top:5%;left:50%;transform:translate(-50%,-50%);font-size:45px;text-align:center;border-radius: 50%;width:50px;height:50px;background: var(--successF);'><i class='bi bi-check' style='color:white;'></i></h1>";
-                                    }
-                                    echo "<div class='text-bg-dark w-100 text-center p-3 h-100 round'>";
-=======
                                 echo "<div class='col-3 p-3 customer-card my-2 hover-zoom' style='position:relative;'>";
                                     if ($row["loan"] == "0") {
                                         echo "<h1 style='position:absolute;top:5%;left:50%;transform:translate(-50%,-50%);font-size:45px;text-align:center;border-radius: 50%;width:50px;height:50px;background: var(--successF);z-index:1'><i class='bi bi-check' style='color:white;'></i></h1>";
                                     }
                                     echo "<div class='text-bg-dark w-100 text-center p-3 h-100 round shadow'>";
->>>>>>> d1ece8a (replace old project with new one)
                                         echo "<i class='bi bi-person-circle' style='font-size: 5em;'></i>";
                                         echo "<h3>" . $row["name"] . "</h3>";
                                         echo "<p style='color:rgba(255,255,255,0.5);'>Loan: <span class='afnnum'>" . number_format($row['loan'], 2) . "</span></p>";
                                         echo "<a href='customer_details.php?id=" . $row["id"] . "' class='btn btn-primary'>Details</a>";
-<<<<<<< HEAD
-=======
                                         $disabledDeleteButton = ($row["loan"] == "0") ? "" : "disabled";
                                         echo "
                                         <button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal' data-id='" . $row["id"] . "' $disabledDeleteButton>
                                             <i class='bi bi-trash'></i>
                                         </button>";
->>>>>>> d1ece8a (replace old project with new one)
                                     echo "</div>";
                                 echo "</div>";
                             }
@@ -114,8 +95,6 @@ include('includes/header.php');
                 </div>
             </div>
         <!-- #endregion -->
-<<<<<<< HEAD
-=======
         <!-- #region Modal for deleting a customer -->
             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -148,7 +127,6 @@ include('includes/header.php');
                 });
             });
         </script>
->>>>>>> d1ece8a (replace old project with new one)
     </div>
 <!-- #endregion -->
 

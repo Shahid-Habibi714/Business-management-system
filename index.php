@@ -48,11 +48,7 @@ include('includes/header.php');
             <div class="container mb-4 col-4" style="height:300px;">
                 <div class="card text-bg-dark h-100 shadow">
                     <h3 class="bg-primary text-center usdnum py-2">
-<<<<<<< HEAD
-                        <?php echo number_format($currency['rate'], 2); ?>
-=======
                         <?php echo number_format(($currency['rate'] ?? 1), 2); ?>
->>>>>>> d1ece8a (replace old project with new one)
                     </h3>
                     <div class="card-header text-white">
                         <h4 class="mt-3">Update Dollar Rate</h4>
@@ -66,11 +62,7 @@ include('includes/header.php');
                                 <button type="submit" class="btn btn-primary w-100">Submit</button>
                             </div>
                         </form>
-<<<<<<< HEAD
-                        <p>Last changed: <?php echo date("F j, Y, g:i A", strtotime($currency['date'])); ?></p>
-=======
                         <p>Last changed: <?php echo date("F j, Y, g:i A", strtotime(($currency['date'])??"")); ?></p>
->>>>>>> d1ece8a (replace old project with new one)
                     </div>
                 </div>
             </div>
@@ -191,11 +183,7 @@ include('includes/header.php');
                             label: 'Dollar Rate',
                             data: [
                                 <?php
-<<<<<<< HEAD
-                                $rate_result = mysqli_query($conn, "SELECT rate FROM currency ORDER BY date DESC LIMIT 100");
-=======
                                 $rate_result = mysqli_query($conn, "SELECT rate FROM currency ORDER BY date DESC LIMIT 50");
->>>>>>> d1ece8a (replace old project with new one)
                                 while ($rate_row = mysqli_fetch_assoc($rate_result)) {
                                     echo $rate_row['rate'] . ",";
                                 }
@@ -254,11 +242,8 @@ include('includes/header.php');
                         </div>";
                 }
                 echo "</div>";
-<<<<<<< HEAD
-=======
             } else {
                 echo '<p>No low stock product found.</p>';
->>>>>>> d1ece8a (replace old project with new one)
             }
         ?>
 
@@ -290,16 +275,6 @@ include('includes/header.php');
             } else {
                 echo "<p>No products available at the moment.</p>";
             }
-<<<<<<< HEAD
-            ?>
-            <div class='col-md-4 mb-4'>
-                <div class='card h-100 bg-transparent'>
-                    <div class='card-body p-0 d-flex justify-content-center align-items-center'>
-                        <button type="button" onclick="location.href='purchases.php'" class="btn btn-primary shine fs-4" style="border-radius: 50%;width:70px;height:70px;"><i class="bi bi-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
-=======
             
             // show more button
             if ($conn->query("SELECT COUNT(*) AS total_rows FROM purchases")->fetch_assoc()['total_rows'] > 5) {
@@ -314,7 +289,6 @@ include('includes/header.php');
                 ";
             }
             ?>
->>>>>>> d1ece8a (replace old project with new one)
         </div>
     <!-- #endregion -->
 </div>
